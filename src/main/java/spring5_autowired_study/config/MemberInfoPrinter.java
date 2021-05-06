@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class MemberInfoPrinter {
 
-	@Autowired
 	private MemberDao memberDao;
-	
-	@Autowired
 	private MemberPrinter printer;
 
 	public void printMemberInfo(String email) {
@@ -23,11 +20,13 @@ public class MemberInfoPrinter {
 
 	}
 	
-
+	/* Autowired anotation은 field 뿐만 아니라 method에서도 사용 가능함*/
+	@Autowired
 	public void setMemberDao(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}
-
+	
+	@Autowired
 	public void setPrinter(MemberPrinter printer) {
 		this.printer = printer;
 	}

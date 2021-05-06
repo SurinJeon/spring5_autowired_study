@@ -13,13 +13,14 @@ public class AppCtx { // Assembler와 다른건 여기서는 Composite 관계임
 	
 	@Bean
 	public MemberRegisterService memberRegSvc() {
-		return new MemberRegisterService(memberDao());
+		return new MemberRegisterService(); // default constructor를 만들고, field autowired 했기 때문에 자동 주입으로 가능해짐
+		// Spring을 쓰면 parameter있는 constructor 잘 쓰지 않음
 	}
 	
 	@Bean
 	public ChangePasswordService changePwdSvc() {
 		ChangePasswordService pwdSvc = new ChangePasswordService();
-		pwdSvc.setMemberDao(memberDao());
+//		pwdSvc.setMemberDao(memberDao()); << autowired 했기 때문에 setting 절차가 필요없음 (service에서 먼저 setter method 지워줌 + autowired anotation 함)
 		return pwdSvc;
 	}
 	
@@ -30,7 +31,7 @@ public class AppCtx { // Assembler와 다른건 여기서는 Composite 관계임
 	
 	@Bean
 	public MemberListPrinter memberListPrinter() {
-		return new MemberListPrinter(memberDao(), memberPrinter());
+		return new MemberListPrinter(); //// default constructor를 만들고, field autowired 했기 때문에 자동 주입으로 가능해짐
 	}
 	
 	@Bean
