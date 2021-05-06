@@ -1,6 +1,7 @@
 package spring5_autowired_study.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class MemberInfoPrinter {
 
@@ -27,6 +28,7 @@ public class MemberInfoPrinter {
 	}
 	
 	@Autowired
+	@Qualifier("printer")
 	public void setPrinter(MemberPrinter printer) {
 		this.printer = printer;
 	}
