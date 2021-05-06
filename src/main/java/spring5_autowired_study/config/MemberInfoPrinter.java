@@ -7,7 +7,7 @@ public class MemberInfoPrinter {
 	@Autowired
 	private MemberDao memberDao;
 	
-	@Autowired
+//	@Autowired
 	private MemberPrinter printer;
 
 	public void printMemberInfo(String email) {
@@ -28,8 +28,10 @@ public class MemberInfoPrinter {
 		this.memberDao = memberDao;
 	}
 
-	public void setPrinter(MemberPrinter printer) {
-		this.printer = printer;
+	@Autowired
+//	@Qualifier("printer1")
+	public void setPrinter(MemberPrinter memberPrinter) {
+		this.printer = memberPrinter;
 	}
 
 }

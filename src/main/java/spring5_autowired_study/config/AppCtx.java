@@ -1,5 +1,6 @@
 package spring5_autowired_study.config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,8 +25,21 @@ public class AppCtx { // Assembler와 다른건 여기서는 Composite 관계임
 	}
 	
 	@Bean
+	@Qualifier("printer")
 	public MemberPrinter memberPrinter() {
 		return new MemberPrinter();
+	}
+	
+	@Bean
+	@Qualifier("printer1")
+	public MemberPrinter memberPrinter1() {
+		return new MemberPrn1();
+	}
+	
+	@Bean
+	@Qualifier("printer2")
+	public MemberPrinter memberPrinter2() {
+		return new MemberPrn2();
 	}
 	
 	@Bean
