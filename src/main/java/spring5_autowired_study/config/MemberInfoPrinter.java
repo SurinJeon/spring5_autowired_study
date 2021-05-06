@@ -31,4 +31,10 @@ public class MemberInfoPrinter {
 		this.printer = printer;
 	}
 
+//	@Autowired
+////	@Qualifier("printer1")
+//	public void setPrinter(MemberPrinter memberPrinter) {
+//		this.printer = memberPrinter;
+//	}
+
 }
